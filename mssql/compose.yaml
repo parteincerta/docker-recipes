@@ -1,0 +1,25 @@
+services:
+  mssql:
+    container_name: "parteincerta-mssql-${TAG}"
+    image: "${IMAGE}:${TAG}-${TAG_EXTRA}"
+    init: true
+    ports:
+      - 1433:1433
+    volumes:
+      - mssql:/var/opt/mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+      - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
+    network_mode: bridge
+    configs:
+      - source: telemetry
+        target: /var/opt/mssql/mssql.conf
+
+configs:
+  telemetry:
+    file: ./mssql.conf
+
+volumes:
+  mssql:
+    name: parteincerta-mssql 

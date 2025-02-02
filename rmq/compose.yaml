@@ -1,0 +1,18 @@
+services:
+  rmq:
+    container_name: "parteincerta-rmq-${TAG}"
+    image: "${IMAGE}:${TAG}-${TAG_EXTRA}"
+    init: true
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rmq:/usr/local/rabbitmq/var/lib/rabbitmq/mnesia
+      - rmq:/var/lib/rabbitmq
+    tmpfs:
+      - /usr/local/rabbitmq/var/log/rabbitmq
+    network_mode: bridge
+
+volumes:
+  rmq:
+    name: parteincerta-rmq

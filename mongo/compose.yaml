@@ -1,0 +1,27 @@
+services:
+  mongo:
+    container_name: "parteincerta-mongo-${TAG}"
+    image: "parteincerta-${IMAGE}:${TAG}-${TAG_EXTRA}"
+    build:
+      args:
+        IMAGE: ${IMAGE}
+        TAG: ${TAG}
+        TAG_EXTRA: ${TAG_EXTRA}
+    init: true
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo:/data/db
+      - mongo:/data/configdb
+    environment:
+      - MONGO_ROOT_USERNAME=${MONGO_ROOT_USERNAME}
+      - MONGO_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_PORT=${MONGO_PORT}
+    network_mode: bridge
+    command: ["/bin/bash", "entrypoint.sh"]
+
+volumes:
+  mongo:
+    name: parteincerta-mongo

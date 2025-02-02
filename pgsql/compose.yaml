@@ -1,0 +1,17 @@
+services:
+  pgsql:
+    container_name: "parteincerta-pgsql-${TAG}"
+    image: "${IMAGE}:${TAG}-${TAG_EXTRA}"
+    init: true
+    ports:
+      - 5432:5432
+    volumes:
+      - pgsql:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    network_mode: bridge
+
+volumes:
+  pgsql:
+    name: parteincerta-pgsql
