@@ -10,6 +10,10 @@
 - Port: `1433`.
 - Check for new tags [here](https://mcr.microsoft.com/en-us/product/mssql/server/tags).
 
+## NGINX
+- By default forwarding HTTP request for 8081 to port 8080.
+- Check for new tags [here](https://hub.docker.com/_/nginx).
+
 ## PostgreSQL
 - User credentials: `postgres`, `postgres`.
 - Port: `5432`.
