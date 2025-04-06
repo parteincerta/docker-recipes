@@ -22,4 +22,4 @@ configs:
 
 volumes:
   mssql:
-    name: parteincerta-mssql 
+    name: parteincerta-mssql

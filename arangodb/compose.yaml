@@ -3,6 +3,8 @@ services:
     container_name: "parteincerta-arangodb-${TAG}"
     image: "${IMAGE}:${TAG}"
     init: true
+    # mdkir /tmp/.arangodb && cat /dev/urandom | head -c 32 > /tmp/.arangodb/ek
+    # command: "arangod --encryption.keyfile /tmp/.arangodb/ek"
     ports:
       - 8529:8529
     volumes:
@@ -17,4 +19,3 @@ volumes:
     name: parteincerta-arangodb
   arangodb-apps:
     name: parteincerta-arangodb-apps
-
