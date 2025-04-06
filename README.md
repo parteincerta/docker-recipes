@@ -1,3 +1,14 @@
+## ArangoDB
+- Root credentials: `root`, `arangodb`.
+- Port: `8529`.
+- Check for new tags [here](https://hub.docker.com/_/arangodb).
+
+## MinIO
+- Root credentials: `miniodadmin`, `miniodadmin`.
+- Port: `9000`.
+- WebUI port: `9001`.
+- Check for new tags [here](https://hub.docker.com/r/minio/minio).
+
 ## MongoDB
 - Root credentials: `admin`, `admin`.
 - User credentials: `mongo`, `mongo`.

@@ -1,0 +1,20 @@
+services:
+  arangodb:
+    container_name: "parteincerta-arangodb-${TAG}"
+    image: "${IMAGE}:${TAG}"
+    init: true
+    ports:
+      - 8529:8529
+    volumes:
+      - arangodb:/var/lib/arangodb3
+      - arangodb-apps:/var/lib/arangodb3-apps
+    environment:
+      - ARANGO_ROOT_PASSWORD=${ARANGO_ROOT_PASSWORD}
+    network_mode: bridge
+
+volumes:
+  arangodb:
+    name: parteincerta-arangodb
+  arangodb-apps:
+    name: parteincerta-arangodb-apps
+
