@@ -1,0 +1,16 @@
+services:
+  redis:
+    container_name: "parteincerta-pgsql-${TAG}"
+    image: "${IMAGE}:${TAG}-${TAG_EXTRA}"
+    init: true
+    command: "redis-server /usr/local/etc/redis/redis.conf"
+    ports:
+      - 6379:6379
+    volumes:
+      - "./redis.conf:/usr/local/etc/redis/redis.conf:ro"
+      - redis:/data
+    network_mode: bridge
+
+volumes:
+  redis:
+    name: parteincerta-redis

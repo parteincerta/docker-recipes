@@ -35,3 +35,8 @@
 - Port: `5672`.
 - Admin Port: `15672`.
 - Check for new tags [here](https://hub.docker.com/_/rabbitmq).
+
+## Redis
+- Credentials: `redis`, `redis`.
+- Port: `6379`.
+- Check for new tags [here](https://hub.docker.com/_/redis).
