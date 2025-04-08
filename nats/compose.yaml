@@ -1,0 +1,18 @@
+services:
+  nats:
+    container_name: "parteincerta-nats-${TAG}"
+    image: "${IMAGE}:${TAG}-${TAG_EXTRA}"
+    init: true
+    command: "--config /etc/nats/nats-server.conf"
+    ports:
+      - 4222:4222
+      - 6222:6222
+      - 8222:8222
+    volumes:
+      - "./nats-server.conf:/etc/nats/nats-server.conf"
+      - nats:/var/lib/nats/data
+    network_mode: bridge
+
+volumes:
+  nats:
+    name: parteincerta-nats
