@@ -1,6 +1,6 @@
 services:
   redis:
-    container_name: "parteincerta-pgsql-${TAG}"
+    container_name: "parteincerta-redis-${TAG}"
     image: "${IMAGE}:${TAG}-${TAG_EXTRA}"
     init: true
     command: "redis-server /usr/local/etc/redis/redis.conf"
