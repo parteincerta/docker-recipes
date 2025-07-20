@@ -1,7 +1,7 @@
 services:
   minio:
     container_name: "parteincerta-minio-${TAG}"
-    image: "${IMAGE}:${TAG}-${TAG_EXTRA}"
+    image: "${IMAGE}:${TAG}${TAG_EXTRA}"
     init: true
     command: server /data --console-address ":9001"
     ports:
